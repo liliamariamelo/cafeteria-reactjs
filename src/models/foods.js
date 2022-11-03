@@ -14,11 +14,7 @@ const foods = [
     name: 'Café mocca',
     image: 'imgs/mocca.jpg',
   },
-  {
-    id: 4,
-    name: 'Smoothie de Morango',
-    image: 'imgs/smoothie.jpg',
-  },
+  
 ];
 
 export default foods;

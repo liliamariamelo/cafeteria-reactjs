@@ -1,25 +1,28 @@
-import Food from  './Food'
+import { useRef, useState } from 'react';
+/*import foods from '../models/foods';*/
+import data from '../models/foods';
+import Food from  './Food';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.bundle.js';
+
+
 
 function App() {
-  const foods  = [{
-    name:  'Capuccino com Nutella',
-    image: 'imgs/capNutella.jpg'
-  },
-  {
-    id: 2,
-    name: 'Capuccino Tradicional',
-    image: 'imgs/capuccino.jpg',
-  },
-  {
-    id: 3,
-    name: 'Café mocca',
-    image: 'imgs/mocca.jpg',
-  },
-  {
-    id: 4,
-    name: 'Smoothie de Morango',
-    image: 'imgs/smoothie.jpg',
-  },]
+  const [foods, setFoods] = useState(data);
+  
+  const buttonAdd = useRef(null);
+
+  const handleClick = () => {
+    const food = {
+      id: 4,
+      name: 'Smoothie de Morango',
+      image: 'imgs/smoothie.jpg',
+    }
+    setFoods([...foods, food]);
+    
+    buttonAdd.current.disabled = true;
+    
+  }
  
   return (
     <div className="container">
@@ -30,7 +33,9 @@ function App() {
     className="btn btn-secondary rounded-circle mr-4 font-weight-bold"
    data-toggle="modal"
    data="#formFoodModal"
-   // onClick="loadFormCreateFood()"
+   onClick={handleClick}
+   
+   ref={buttonAdd}
   > + </button>
     </div>
     <section className="card-deck my-3">
