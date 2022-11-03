@@ -5,9 +5,6 @@ import Food from  './Food';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.bundle.js';
 
-
-
-
 function App() {
   const [foods, setFoods] = useState(data);
   
@@ -21,8 +18,7 @@ function App() {
     }
     setFoods([...foods, food]);
     
-    buttonAdd.current.disabled = true;
-    
+    buttonAdd.current.disabled = true;   
   }
  
   return (
@@ -34,15 +30,12 @@ function App() {
     className="btn btn-secondary rounded-circle mr-4 font-weight-bold"
    data-toggle="modal"
    data="#formFoodModal"
-   onClick={handleClick}
-   
-   ref={buttonAdd}
-  > + </button>
+   onClick={handleClick}  
+   ref={buttonAdd} > + </button>
     </div>
     <section className="card-deck my-3">
      {foods.map((food) =>{ return <Food food={food} key={food.id} /> })}
-          
-     <h1 className="mt-5 text center">Menu</h1>
+         <h1 className="mt-5 text center">Menu</h1>
       <div className="text-right">
       <button
        type="button"
